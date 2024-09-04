@@ -1,25 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <div class="container" style="max-width:800px;">
-    <div class="row">
-        <div class="col">
-            <h1><b>Sharjeel Mustafa</b></h1>
-            <p>Software Developer</p>
-        </div>
-    </div>
-</div> -->
+<div class="flex-grow-1 d-flex align-items-center rounded mb-4 title-box-lg"></div>
 
-<div class="flex-grow-1 d-flex align-items-center shadow-sm rounded mb-4" style="background-color: #BFEA7C; height: calc(66.67vh - 56px);">
-    <div class="container p-3 ms-4">
-        <h1><b>Halal Eats</b></h1>
-        <p>Your one stop shop for all your cravings!</p>
-        <a class="btn btn-dark" href="/list">Get Started</a>
+<!-- PAGE HEADER -->
+<div class="flex-grow-1 d-flex align-items-center shadow rounded mb-4 title-box turkish">
+    <div class="container p-3 ms-4" >
+        <h1 class="mono-title"><b>ABOUT</b></h1>
+        <p>Basically a more detailed and citation supported resume</p>
     </div>
 </div>
+<br>
 
 <!-- INFORMATION SECTION -->
-
 <div class="row">
     <div class="col-2">
         <nav id="about-toc" class="h-100 flex-column align-items-stretch">
@@ -28,8 +21,7 @@
                 <a class="nav-link" href="#item-1">Technical</a>
                 <nav class="nav nav-pills flex-column">
                     <a class="nav-link ms-3 my-1" href="#item-1-1">Languages</a>
-                    <a class="nav-link ms-3 my-1" href="#item-1-2">Libraries</a>
-                    <a class="nav-link ms-3 my-1" href="#item-1-3">Concepts</a>
+                    <a class="nav-link ms-3 my-1" href="#item-1-2">Technologies</a>
                 </nav>
                 <!-- Section 2 -->
                 <a class="nav-link" href="#item-2">Education</a>
@@ -54,41 +46,33 @@
     
     <div class="col-8">
         <div class="container" style="max-width:800px;">
-        <div data-bs-spy="scroll" data-bs-target="#about-toc" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+        <div data-bs-spy="scroll" data-bs-target="#about-toc" data-bs-smooth-scroll="true" tabindex="0">
             <!-- Section 1 Information-->
             <div id="item-1">
                 <h2><b>Technical</b></h2>
                 <hr>
                 <div id="item-1-1">
                     <h5><b>Languages</b></h5>
-                    <p>
-                        <i>Ordering: Extensive, Significant, Moderate, Limited.</i> <br>
-                        <i>Note: An * refers to an exceptionally complex or significant use</i>
-                    </p>
+                    <p><i>Ordering: Extensive, Significant, Moderate, Limited</i></p>
                     <ul>
                         <li><b>Python</b>: Extensive use <a class="clean-link" href="item-4">[1]-[3], [16], [18]-[25]</a></li>
-                        <li><b>SQL</b>: Extensive Use <a class="clean-link" href="#item-4">[4], [16*], [17], [22], [23]</a></li>
+                        <li><b>SQL</b>: Extensive Use <a class="clean-link" href="#item-4">[4], [16], [17], [22], [23]</a></li>
                         <li><b>Java</b>: Moderate Use <a class="clean-link" href="#item-4">[5]-[7]</a></li>
-                        <li><b>C/C++</b>: Significant Use <a class="clean-link" href="#item-4"> </a></li>
-                        <li><b>JavaScript</b>: Limited Use <a class="clean-link" href="#item-4"></a></li>
+                        <li><b>C/C++</b>: Significant Use <a class="clean-link" href="#item-4">[8]-[12]</a></li>
+                        <li><b>JavaScript</b>: Limited Use <a class="clean-link" href="#item-4">[17]</a></li>
                         <li><b>HTML/CSS</b>: Moderate Use <a class="clean-link" href="#item-4">[14], [18], [20], [22]-[24]</a></li>
                         <li><b>Assmebly</b>: Limited Use <a class="clean-link" href="#item-4">[15]</a></li>
                     </ul>
                 </div>
                 <div id="item-1-2">
                     <h5><b>Technologies</b></h5>
+                    <p>The following are some significantly used libraries, technologies, and concepts</p>
                     <ul>
-                        <li>Data/ML: Pandas, NumPy, PyTorch, PyTorch Geometric, Matplotlib/Seaborne, Transformers, Spacy</li>
-                        <li>Web Dev: Flask, Bootstrap, SQLAlchemy, WTForms</li>
-                        <li>Other: Git, Neo4j, RedisQ, GraphQL, </li>
+                        <li><b>Data/ML</b>: Pandas, NumPy, PyTorch, PyTorch Geometric, Matplotlib/Seaborne, Spacy</li>
+                        <li><b>Web Dev</b>: Flask, Bootstrap, SQLAlchemy, WTForms, Selenium, PyTest</li>
+                        <li><b>Other</b>: Git, Neo4j, RedisQ, GraphQL, SQlite, Droplet, Cuda </li>
+                        <li><b>Concepts</b>: Regex, Software Architecture, Functional Programming, Concurrency, Graphs</li>
                     </ul>
-                </div>
-                <div id="item-1-3">
-                    <h5><b>Concepts</b></h5>
-                    <p>Unexpected concepts from my degree I actually use a lot:</p>
-                    <p>Regex, software architectures (especially layered), functional programming, object oriented programming, multithreading, multiprocessing, graphs & graph theory </p>
-                    
-                    
                 </div>
             </div>
 
@@ -97,7 +81,7 @@
                 <h2><b>Education</b></h2>
                 <hr>
                 <b>Bachelor of Honours Computer Science, Software Engineering Specialization</b>
-                <p>University of Windsor, GPA: 92%</p>
+                <p>University of Windsor, Sep 2020 - Aug 2024, GPA: 92%</p>
 
                 <b>Awards and Honours</b>
                 <ul>
@@ -114,6 +98,16 @@
                         <i class="text-muted">Awarded to students to recognize exceptional contributions and impact made during work term</i>
                     </li>
                 </ul>
+
+                <h5 id="item-2-1"><b>Senior Research <a class="clean-link" href="#item-4">[3] </a></b></h5>
+                <ul>
+                    <li>Researched Graph Neural Network (GNN) models architectures for heterophily</li>
+                    <li>Designed and developed a comprehensive end-to-end GNN testing platform</li>
+                    <li>Implemented various GNNs like GCN and theoretically explained design limitations</li>
+                    <li>Significantly contributed to a poster and journal article, resulting in a final grade of 95%</li>
+                    
+                </ul>
+
             </div>
 
             <!-- Section 3 Information-->
@@ -152,22 +146,19 @@
                 <h2><b>Appendix</b></h2>
                 <hr>
                 
-                <ol style="font-family: 'Courier New', Courier, monospace;">
+                <ol class="mono-font">
                     <!-- Courses: Python -->
                     <li>Sep 2018 - Jun 2019, Vincent Massey Secondary School, ICS3U-06 (Course)</li>
                     <li>Jan 2022 - Apr 2019, University of Windsor, COMP-2067 (Course) </li>
                     <li>Jan 2024 - Aug 2024, University of Windsor, COMP-4960 (Course) </li>
                     
-                    
                     <!-- Courses: SQL -->
                     <li>Sep 2022 - Dec 2022, University of Windsor, COMP-3150 (Course) </li>
     
-
                     <!-- Courses: Java -->
                     <li id="r5">Sep 2021 - Dec 2021, University of Windsor, COMP-2120 (Course) </li>
                     <li id="r6">Jan 2022 - Apr 2022, University of Windsor, COMP-2800 (Course) </li>
                     <li id="r7">Jan 2024 - Apr 2024, University of Windsor, COMP-4110 (Course) </li>
-
 
                     <!-- Courses: C/C++ -->
                     <li>Sep 2020 - Dec 2020, University of Windsor, COMP-1400 (Course) </li>
@@ -200,23 +191,49 @@
                     <li>MontyBot (Project)</li>
 
                     <!-- Other -->
-                    <li><a href="https://www.uwindsor.ca/dailynews/2024-03-21/academic-foundation-helps-student-thrive-co-op-position" target="_blank">"Academic Foundation Helps Student Thrive in Co-op Position," University of Windsor Daily News</a></li>
-                    <li><a href="https://www.linkedin.com/posts/sandra-davis-02158853_computer-science-co-op-student-sharjeel-activity-7176938336559771650-q-tw?utm_source=share&utm_medium=member_desktop" target="_blank">LinkedIn Post by Sandra Davis: "Computer Science Co-op Student Sharjeel"</a></li>
+                    <li><a class="darkred" href="https://www.uwindsor.ca/dailynews/2024-03-21/academic-foundation-helps-student-thrive-co-op-position" target="_blank">"Academic Foundation Helps Student Thrive in Co-op Position," University of Windsor Daily News</a></li>
+                    <li><a class="darkred" href="https://www.linkedin.com/posts/sandra-davis-02158853_computer-science-co-op-student-sharjeel-activity-7176938336559771650-q-tw?utm_source=share&utm_medium=member_desktop" target="_blank">LinkedIn Post by Sandra Davis: "Computer Science Co-op Student Sharjeel"</a></li>
                 </ol>
-
-
-                
-
             <!-- End Information Sections -->
         </div>
     </div>
 </div>
 </div>
 
-
+<!-- SCRIPT -->
 <script>
     const scrollSpy = new bootstrap.ScrollSpy(document.body, {
         target: '#navbar-example'
     })
+
+    window.addEventListener('scroll', function() {
+        var toc = document.getElementById('about-toc');
+        var triggerPoint = window.innerHeight * 1.17;
+      
+        if (window.scrollY > triggerPoint) {
+          toc.style.position = 'fixed';
+          toc.style.top = '20px'; // Adjust this to control the distance from the top of the viewport
+        } else {
+          toc.style.position = 'absolute';
+          toc.style.top = 'auto';
+        }
+      });
+      document.querySelectorAll('#about-toc a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          var toc = document.getElementById('about-toc');
+          var targetId = this.getAttribute('href').substring(1);
+          var targetElement = document.getElementById(targetId);
+          var tocHeight = toc ? toc.offsetHeight : 0;
+
+          var offset = targetElement.getBoundingClientRect().top + window.scrollY; // Adjust '80' to match the TOC's fixed top
+          // console.log(offset)
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+        });
+      });
 </script>
+
 {% endblock content %}

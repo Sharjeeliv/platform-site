@@ -1,20 +1,73 @@
-.colour-arabic {
+.arabic {
     background: linear-gradient(135deg, #d7f481, #69c82a);
 }
 
-.colour-turkish {
+.turkish {
     background: linear-gradient(135deg, #fbcb84, #ea3c07);
 }
 
-.colour-indian {
+.indian {
     background: linear-gradient(135deg, #f5d865, #ff7700)
 }
 
-.colour-american {
+.american {
     background: linear-gradient(135deg, #65dff5, #00a6ff)
+}
+
+
+.title-box {
+    height: calc(33.33vh);
+}
+
+.title-box-lg {
+    height: calc(66.67vh);
+}
+
+.darkred {
+    color: darkred;
 }
 
 .clean-link {
     color: darkred;
     text-decoration: none;
+}
+
+.mono-font {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mono-title {
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* Monospace font */
+    font-size: 54px;
+    /* Larger font size */
+    font-weight: bold;
+    /* Heavier font weight */
+    line-height: 1;
+    /* Increased space between lines */
+    letter-spacing: 2px;
+    /* Space between characters */
+}
+
+.nav-link {
+    color: gray;
+}
+
+.nav-link.active {
+    background-color: rgb(56, 56, 56) !important;
+    color: white !important;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: black;
+}
+
+#about-toc {
+    position: absolute;
+    /* Start as absolute, it will change to fixed later */
+    top: auto;
+    /* Adjust based on your layout */
+    z-index: 1000;
+    /* Keeps it above other content */
 }
