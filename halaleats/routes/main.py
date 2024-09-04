@@ -1,5 +1,5 @@
 # Third-party Imports
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, send_from_directory
 from flask_login import login_required, current_user
 from halaleats.lib.utils import flash_form_errors
 from halaleats.models import Eatery
@@ -16,9 +16,9 @@ main = Blueprint('routes/main', __name__)
 def about():
     return render_template('about.html', title='About', user=current_user)
 
-@main.route("/methodology")
-def methods():
-    return render_template('methodology.html', title='Methodology', user=current_user)
+@main.route('/resume')
+def resume():
+    return send_from_directory('static', 'resume.pdf')
 
 @main.route("/")
 def home():

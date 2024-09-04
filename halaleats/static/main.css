@@ -16,7 +16,7 @@
 
 
 .title-box {
-    height: calc(33.33vh);
+    height: calc(20vh);
 }
 
 .title-box-lg {
@@ -37,16 +37,10 @@
 }
 
 .mono-title {
-    /* font-family: 'Courier New', Courier, monospace; */
-    /* Monospace font */
     font-size: 54px;
-    /* Larger font size */
     font-weight: bold;
-    /* Heavier font weight */
     line-height: 1;
-    /* Increased space between lines */
     letter-spacing: 2px;
-    /* Space between characters */
 }
 
 .nav-link {
@@ -65,9 +59,45 @@
 
 #about-toc {
     position: absolute;
-    /* Start as absolute, it will change to fixed later */
     top: auto;
-    /* Adjust based on your layout */
     z-index: 1000;
-    /* Keeps it above other content */
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #3e3e3e;
+    animation: wiggle 8s infinite;
+    box-shadow: 0 0 3px 3px rgba(149, 149, 149, 0.5);
+    /* Apply the wiggle animation */
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    50% {
+        transform: rotate(-1deg);
+    }
+
+    75% {
+        transform: rotate(1deg);
+    }
+
+    100% {
+        transform: rotate(-1deg);
+    }
 }
