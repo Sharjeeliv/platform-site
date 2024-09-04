@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% block title %} {{ title }} {% endblock %}
+
+<!-- BLOCK CONTENT -->
+{% block content%}
+<div class="container">
+    <form method="POST" class="mx-auto needs-validation col-lg-6 col-md-8"  novalidate>
+        {{ form.hidden_tag() }}
+        <h3 align="center">Register</h3>
+        <br/>
+        <div class="input-group mb-3 shadow-sm rounded">
+            <span class="input-group-text" style="min-width: 100px;">Name</span>
+            {{ form.first_name(class="form-control", placeholder="First Name") }}
+            {{ form.last_name(class="form-control rounded-end", placeholder="Last Name") }}
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        <div class="input-group mb-3 shadow-sm rounded">
+            <span class="input-group-text" style="min-width: 100px;">Email</span>
+            {{ form.email(type="email", class="form-control rounded-end", placeholder="Enter Email") }}
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        <div class="input-group mb-3 shadow-sm rounded">
+            <span class="input-group-text" style="min-width: 100px;">Password</span>
+            {{ form.password(type="password", class="form-control", placeholder="Enter Password") }}
+            {{ form.confirm_password(type="password", class="form-control rounded-end", placeholder="Confirm Password") }}
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        <div class="input-group mb-3 shadow-sm rounded">
+            <span class="input-group-text" style="min-width: 100px;">Token</span>
+            {{ form.token(type="password", class="form-control rounded-end", placeholder="Enter Token") }}
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        {{ form.submit(class="btn btn-dark mb-3 mt-3 shadow-sm rounded col-12") }}
+    </form>
+    <!-- style="min-width: 600px;" -->
+</div>
+<script src="../static/input_validation.js"></script>
+{% endblock %}

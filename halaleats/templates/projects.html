@@ -1,0 +1,177 @@
+{% extends 'base.html' %} 
+{% block title %} {{ title }} {% endblock %} 
+
+<!-- BLOCK CONTENT -->
+{% block content %}
+<!-- SEARCH GROUP -->
+<div class="container mb-5">
+    <form method="POST" class="mx-auto mb-5 col-lg-6 col-md-8">
+        {{ form.hidden_tag() }}
+        <div class="input-group mb-3 shadow-sm rounded">
+            {{ form.search(type="text", class="form-control", placeholder="Search") }}
+            {{ form.submit(class="btn btn-dark") }}   
+        </div>
+        <div class="row">
+        <!-- DROP DOWN BUTTON 1: CUISINE -->
+        <div class="col">
+            <select class="form-select shadow-sm rounded" name="{{ form.cuisine.name }}">
+                <option value="" disabled selected>{{ form.cuisine.label }}</option>
+                {% for value, label in form.cuisine.choices %}
+                    <option value="{{ value }}" {% if form.cuisine.data == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        <!-- DROP DOWN BUTTON 2: VERIFICATION -->
+        <div class="col">
+            <select class="form-select shadow-sm rounded" name="{{ form.verification.name }}">
+                <option value="" disabled selected>{{ form.verification.label }}</option>
+                {% for value, label in form.verification.choices %}
+                    <option value="{{ value }}" {% if form.verification.data == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div>
+        <!-- DROP DOWN BUTTON 3: DISTANCE -->
+        <!-- <div class="col">
+            <select class="form-select shadow-sm rounded" name="{{ form.distance.name }}">
+                <option value="" disabled selected>{{ form.distance.label }}</option>
+                {% for value, label in form.distance.choices %}
+                    <option value="{{ value }}" {% if form.distance.data == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback m-0 p-0"></div>
+        </div> -->
+    </form>
+</div>
+<!-- END SEARCH GROUP -->
+
+<!-- CARD LISTING -->
+<div class="container" style="max-width:800px;">
+
+    {% for eatery in eateries.items %}
+
+    <!-- Start Card -->
+    <div class="card mb-3" style="border-color: rgb(222, 226, 230);">
+        <div class="row g-0 shadow-sm rounded" style="overflow: hidden;">
+            <div class="col-1 colour-{{ eatery.cuisine }}"></div>
+            <div class="col">
+                <!-- Start Card Body -->
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ eatery.name }}
+                        <!-- Edit and delete button -->
+                        {% if user.is_authenticated %}
+                        <a 
+                            class="btn btn-outline-secondary float-end ms-2 " 
+                            style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            href="{{ url_for('routes/eatery.update', eatery_id = eatery.id) }}">
+                            &#9998;
+                        </a>
+                        <button 
+                            type="button" 
+                            class="btn btn-outline-danger float-end" 
+                            style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            data-eatery-url="{{ url_for('routes/eatery.delete', eatery_id = eatery.id) }}"
+                            data-bs-toggle="modal" data-bs-target="#deleteModal" data-eatery-id="{{ eatery.id }}">
+                            &times;
+                        </button>
+                        {% endif %}
+                    </h5><hr class="mb-3 mt-0">
+                    <div class="row">
+                        <!-- Info Section -->
+                        <div class="col-md-8"><p class="card-text">
+                            <strong>Address: </strong>{{ eatery.address }}<br>
+                            <strong>Alcohol Served: </strong>{{ 'Yes' if eatery.alcohol_served else 'No' }}<br>
+                            <strong>Verification: </strong>{{ eatery.verification_type }}<br>
+                        </p></div>
+                        <!-- Button & Tag -->
+                        <div class="col-md-4">
+                            <span class="badge colour-{{ eatery.cuisine }} float-end">{{ eatery.cuisine.title() }}</span><br>
+                            {% if eatery.certificate_file %}
+                            
+                            <button 
+                                type="button" 
+                                class="btn btn-dark float-end" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#imageModal" 
+                                data-certificate-file="{{ eatery.certificate_file }}" 
+                                data-certificate-url="{{ url_for('static', filename='certificates/' + eatery.certificate_file) }}">
+                                Certificate Picture
+                            </button>
+                            {% else %}
+                            <button type="button" class="btn btn-dark float-end" disabled>
+                                Certificate Picture
+                            </button>
+                            {% endif %}
+                        </div> <!-- End Info-->
+                    </div>
+                </div> <!-- End Card Body -->
+            </div>
+        </div>
+    </div> <!-- End Card-->
+    {% endfor %} 
+    
+    {% if not eateries.items%}
+    <div class="text-center">
+        <a><b>No eateries</b></a>
+    </div>
+    {% endif %}
+    <!-- END CARD LISTING -->
+
+    <!-- BEGIN PAGINATION-->
+    {% for page_num in eateries.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
+        {% if page_num %}
+            {% if eateries.page == page_num %}
+                <a class="btn btn-dark mb-4" href="{{ url_for('routes/main.home',page=page_num) }}">{{ page_num }}</a>
+            {% else %}
+                <a class="btn btn-outline-dark mb-4" href="{{ url_for('routes/main.home',page=page_num) }}">{{ page_num }}</a>
+            {% endif%}
+        {% else %}
+            ...
+        {% endif%}
+    {% endfor %}
+    <!-- END PAGINATION-->
+
+    <!-- BEGIN IMAGE MODAL-->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-content">
+            <!-- Modal Information -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Certificate Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Certificate -->
+            <div class="modal-body">
+                <img id="certificateImage" class="img-fluid" alt="Certificate Image">
+            </div>
+        </div>
+    </div>
+    <!-- END IMAGE MODAL-->
+
+    <!-- BEGIN DELETE MODAL-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Eatery?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Once deleted it's gone forever. You can't undo this action.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form id="deleteForm" method="POST" action="">
+                        <input type="hidden" id="eateryIdInput" name="eatery_id" value="">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END DELETE MODAL-->
+
+</div>
+<script src="../static/load_modal.js"></script>
+<script src="../static/input_validation.js"></script>
+{% endblock %}
