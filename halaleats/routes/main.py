@@ -10,9 +10,9 @@ from halaleats.models import Project
 
 main = Blueprint('routes/main', __name__)
 
-@main.route("/about")
+@main.route("/temp")
 def about():
-    return render_template('about.html', title='About', user=current_user)
+    return render_template('temp.html', user=current_user)
 
 @main.route('/resume')
 def resume():

@@ -7,6 +7,6 @@ LANGUAGES = [
 
 TYPES = [
     ('machine-learning', 'Machine Learning'),
-    ('game/simulation', 'Game/Simulation'), 
+    ('game-simulation', 'Game/Simulation'), 
     ('web-application', 'Web Application'),
     ('automation-tool', 'Automation/Tool')]
