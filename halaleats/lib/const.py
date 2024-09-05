@@ -1,24 +1,12 @@
-CUISINES = [
-    ('arabic', 'Arabic'), 
-    ('turkish', 'Turkish'), 
-    ('indian', 'Indian'),
-    ('american', 'American')]
+LANGUAGES = [
+    ('python', 'Python'), 
+    ('java', 'Java'),
+    ('cppc', 'C/C++'),
+    ('javascript', 'JavaScript'),
+    ('csharp', 'C#')]
 
-VERIFICATIONS = [
-    ('certificate', 'Certificate'), 
-    ('ownership', 'Ownership'), 
-    ('signage', 'Signage'),
-    ('verbal', 'Verbal'),
-    ('unknown', 'Unknown')]
-
-DISTANCES = [
-    ('1', '00 - 01 km'), 
-    ('2', '01 - 02 km'), 
-    ('5', '02 - 05 km'),
-    ('10', '05 - 10 km'),
-    ('25', '10 - 25 km'),
-    ('25plus', '25+ km')]
-
-ALCOHOL_SERVICE = [
-    (False, 'No'), 
-    (True, 'Yes')]
+TYPES = [
+    ('machine-learning', 'Machine Learning'),
+    ('game/simulation', 'Game/Simulation'), 
+    ('web-application', 'Web Application'),
+    ('automation-tool', 'Automation/Tool')]

@@ -1,12 +1,11 @@
 # Third-party Imports
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional
 
 # Local Imports
 from halaleats.models import User
-from halaleats.lib.const import CUISINES, VERIFICATIONS, DISTANCES, ALCOHOL_SERVICE
+from halaleats.lib.const import LANGUAGES, TYPES
 
 # *********************
 # USER FORMS
@@ -34,15 +33,17 @@ class LoginForm(FlaskForm):
 
 
 # *********************
-# EATERY FORM
+# PROJECT FORM
 # *********************
-class EateryForm(FlaskForm):
+class ProjectForm(FlaskForm):
     name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=50)])
-    address = StringField('Address', validators=[DataRequired(), Length(min=2, max=100)])
-    picture = FileField('Certificate', validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
-    cuisine = SelectField('Cuisine', choices=CUISINES)
-    verification = SelectField('Verification', choices=VERIFICATIONS)
-    alcohol_service = SelectField('Alcohol', choices=ALCOHOL_SERVICE)
+    description = StringField('Description', validators=[DataRequired(), Length(min=2, max=100)])
+    github = StringField('Github Repository', validators=[DataRequired()])
+
+    main_lang = SelectField('Main Language', choices=LANGUAGES)
+    proj_type = SelectField('Project Type', choices=TYPES)
+    langtools = StringField('Language & Tools', validators=[DataRequired(), Length(min=2, max=100)])
+
     submit = SubmitField('Submit')
 
 
@@ -50,8 +51,6 @@ class EateryForm(FlaskForm):
 # SITE FORMS
 # *********************
 class SearchForm(FlaskForm):
-    search = StringField('Search', validators=[Length(max=200)])
-    cuisine = SelectField('Cuisine', choices=CUISINES, validators=[Optional()])
-    verification = SelectField('Verification', choices=VERIFICATIONS, validators=[Optional()])
-    distance = SelectField('Distance', choices=DISTANCES, validators=[Optional()])
+    main_lang = SelectField('Main Language', choices=LANGUAGES, validators=[Optional()])
+    proj_type = SelectField('Project Type', choices=TYPES, validators=[Optional()])
     submit = SubmitField('→')

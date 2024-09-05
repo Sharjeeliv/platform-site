@@ -24,18 +24,17 @@ def create_app(config=None):
     bcrypt.init_app(app)
 
     from .routes.main import main
-    from .routes.eatery import eatery
+    from .routes.project import project
     from .routes.auth import auth
     from .routes.errors import errors
 
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
-    app.register_blueprint(eatery, url_prefix='/eatery/')
+    app.register_blueprint(project, url_prefix='/project/')
     app.register_blueprint(errors, url_prefix='/')
-    from .models import User, Eatery
+    from .models import User, Project
     
-    with app.app_context():
-        db.create_all()
+    with app.app_context(): db.create_all()
 
     login_manager = LoginManager()
     login_manager.login_view = 'routes/auth.login'
@@ -46,7 +45,3 @@ def create_app(config=None):
         return User.query.get(int(id))
     
     return app
-
-
-    # app.config['SECRET_KEY'] = 
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 

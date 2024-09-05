@@ -2,7 +2,7 @@ import os
 
 DB_NAME = "database.db"
 PARAMS = {
-    'SECRET_KEY': os.environ['HE_SECRET_KEY'],
+    'SECRET_KEY': os.environ['PL_SECRET_KEY'],
     'DB_URI': f'sqlite:///{DB_NAME}',
-    'TOKEN': os.environ['HE_TOKEN']
+    'TOKEN': os.environ['PL_TOKEN']
 }

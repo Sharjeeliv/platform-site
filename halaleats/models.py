@@ -6,14 +6,14 @@ from sqlalchemy.sql import func
 from halaleats import db
 
 
-class Eatery(db.Model):
+class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    address = db.Column(db.String(256), unique=True)
-    cuisine = db.Column(db.String(32))
-    verification_type = db.Column(db.String(32))
-    certificate_file = db.Column(db.String(32))
-    alcohol_served = db.Column(db.Boolean)
+    name = db.Column(db.String(64))             # Name of Project    
+    description = db.Column(db.String(256))     # Description of Project
+    github = db.Column(db.String(256))          # Github Repository
+    type = db.Column(db.String(32))             # Type of Project
+    main = db.Column(db.String(32))             # Main Language
+    langtools = db.Column(db.String(256))       # Language and Tools  
     datetime_added = db.Column(db.DateTime(timezone=True), default=func.now())
 
 
