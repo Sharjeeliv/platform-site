@@ -11,6 +11,7 @@ class Project(db.Model):
     name = db.Column(db.String(64))             # Name of Project    
     description = db.Column(db.String(256))     # Description of Project
     github = db.Column(db.String(256))          # Github Repository
+    link = db.Column(db.String(256))            # Project Link
     type = db.Column(db.String(32))             # Type of Project
     main = db.Column(db.String(32))             # Main Language
     langtools = db.Column(db.String(256))       # Language and Tools  

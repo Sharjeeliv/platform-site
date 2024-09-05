@@ -30,8 +30,8 @@ def projects():
 
 
         field_mapping = {
-        'type': (Project.type.ilike(f"%{form.proj_type.data}%")),
-        'main': (Project.main == form.main_lang.data)
+        'proj_type': (Project.type.ilike(f"%{form.proj_type.data}%")),
+        'main_lang': (Project.main == form.main_lang.data)
         }
         filters = {k: v for k, v in field_mapping.items() if form[k].data is not None}
         query = Project.query.filter(*filters.values())

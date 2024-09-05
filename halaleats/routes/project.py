@@ -17,10 +17,7 @@ project = Blueprint('routes/project', __name__)
 def create():
     form = ProjectForm()
     print(form.validate_on_submit())
-    
     if form.validate_on_submit():
-        
-
         project = Project(
             name=form.name.data,
             description=form.description.data,
@@ -33,13 +30,13 @@ def create():
         db.session.add(project)
         db.session.commit()
         flash(f'Project successfuly saved', category='success')
-        return redirect(url_for('routes/main.home'))
+        return redirect(url_for('routes/main.projects'))
     else:
         # Flash form validation errors
         flash_form_errors(form)
     return render_template('project_input.html', title='Create Project', form=form, user=current_user)
 
-@project.route("/project/<int:project_id>/delete", methods=['GET', 'POST'])
+@project.route("/<int:project_id>/delete", methods=['GET', 'POST'])
 @login_required
 def delete(project_id: int):
     project = Project.query.get_or_404(project_id)
@@ -48,7 +45,7 @@ def delete(project_id: int):
     flash('Project Deleted', 'success')
     return redirect(url_for('routes/main.projects'))
 
-@project.route("/project/<int:project_id>/update", methods=['GET', 'POST'])
+@project.route("/<int:project_id>/update", methods=['GET', 'POST'])
 @login_required
 def update(project_id: int):
     project = Project.query.get_or_404(project_id)
@@ -58,6 +55,7 @@ def update(project_id: int):
         project.name=form.name.data
         project.description=form.description.data
         project.github=form.github.data
+        project.link=form.link.data
         project.type=form.proj_type.data
         project.main=form.main_lang.data
         project.langtools=form.langtools.data
@@ -70,6 +68,7 @@ def update(project_id: int):
         form.name.data=project.name
         form.description.data=project.description
         form.github.data=project.github
+        form.link.data=project.link
         form.proj_type.data=project.type
         form.main_lang.data=project.main
         form.langtools.data=project.langtools

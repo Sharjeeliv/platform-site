@@ -91,6 +91,18 @@
     }
 }
 
+.btn-custom {
+    --bs-btn-padding-y: .02rem;
+    --bs-btn-padding-x: .05rem;
+    --bs-btn-font-size: .75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8rem;
+    width: 1.8rem;
+    margin: 0 0.10rem;
+}
+
 /* PROFILE IMAGE ANIMATION */
 .profile-img {
     width: 300px;
