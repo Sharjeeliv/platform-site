@@ -226,7 +226,6 @@
                     <!-- Other -->
                     <li><a class="darkred" href="https://www.uwindsor.ca/dailynews/2024-03-21/academic-foundation-helps-student-thrive-co-op-position" target="_blank">"Academic Foundation Helps Student Thrive in Co-op Position," University of Windsor Daily News</a></li>
                     <li><a class="darkred" href="https://www.linkedin.com/posts/sandra-davis-02158853_computer-science-co-op-student-sharjeel-activity-7176938336559771650-q-tw?utm_source=share&utm_medium=member_desktop" target="_blank">LinkedIn Post by Sandra Davis: "Computer Science Co-op Student Sharjeel"</a></li>
-                    <li><a href="https://www.freepik.com/free-vector/abstract-yellow-watercolor-brush-stroke-white-background_262071655.htm#query=yellow%20brush&position=6&from_view=keyword&track=ais_hybrid&uuid=38862693-61d3-40c1-8e7d-000d179e4764">Yellow Brush Stroke Image by Harryarts on Freepik</a></li>
                 </ol>
             <!-- End Information Sections -->
         </div>
@@ -246,7 +245,7 @@
       
         if (window.scrollY > triggerPoint) {
           toc.style.position = 'fixed';
-          toc.style.top = '20px'; // Adjust this to control the distance from the top of the viewport
+          toc.style.top = '20px';
         } else {
           toc.style.position = 'absolute';
           toc.style.top = 'auto';
@@ -260,8 +259,7 @@
           var targetElement = document.getElementById(targetId);
           var tocHeight = toc ? toc.offsetHeight : 0;
 
-          var offset = targetElement.getBoundingClientRect().top + window.scrollY; // Adjust '80' to match the TOC's fixed top
-          // console.log(offset)
+          var offset = targetElement.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
             top: offset,
             behavior: 'smooth'
