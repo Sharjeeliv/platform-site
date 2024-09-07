@@ -5,8 +5,8 @@ from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional
 
 # Local Imports
-from halaleats.models import User
-from halaleats.lib.const import LANGUAGES, TYPES
+from platform_site.models import User
+from platform_site.lib.const import LANGUAGES, TYPES
 
 # *********************
 # USER FORMS

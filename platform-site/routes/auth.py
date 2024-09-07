@@ -3,10 +3,10 @@ from flask import Blueprint,render_template, flash, redirect, url_for
 from flask_login import login_required, login_user, logout_user, current_user
 
 # Local Imports
-from halaleats import db, bcrypt, signup_token
-from halaleats.models import User
-from halaleats.lib.forms import RegistrationForm, LoginForm
-from halaleats.lib.utils import flash_form_errors
+from platform import db, bcrypt, signup_token
+from platform_site.models import User
+from platform_site.lib.forms import RegistrationForm, LoginForm
+from platform_site.lib.utils import flash_form_errors
 
 
 auth = Blueprint('routes/auth', __name__)

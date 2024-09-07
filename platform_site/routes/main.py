@@ -1,11 +1,11 @@
 # Third-party Imports
-from flask import Blueprint, render_template, request, send_from_directory
+from flask import Blueprint, render_template, request, send_from_directory, url_for
 from flask_login import login_required, current_user
-from halaleats.lib.utils import flash_form_errors
+from platform_site.lib.utils import flash_form_errors
 
 # Local Imports
-from halaleats.lib.forms import SearchForm
-from halaleats.models import Project
+from platform_site.lib.forms import SearchForm
+from platform_site.models import Project
 
 
 main = Blueprint('routes/main', __name__)
@@ -16,7 +16,7 @@ def about():
 
 @main.route('/resume')
 def resume():
-    return send_from_directory('static', 'resume.pdf')
+    return send_from_directory('static', 'Resume.pdf')
 
 @main.route("/")
 def home():

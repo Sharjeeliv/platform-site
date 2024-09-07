@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 # Local Imports
-from halaleats.params import PARAMS
+from platform_site.params import PARAMS
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()

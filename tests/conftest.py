@@ -1,5 +1,5 @@
 import pytest
-from halaleats import PARAMS, create_app
+from platform import PARAMS, create_app
 
 class TestConfig:
     SECRET_KEY =  PARAMS['SECRET_KEY']

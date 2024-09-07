@@ -189,9 +189,9 @@
                     <li>Sep 2022 - Dec 2022, University of Windsor, COMP-3150 (Course) </li>
     
                     <!-- Courses: Java -->
-                    <li id="r5">Sep 2021 - Dec 2021, University of Windsor, COMP-2120 (Course) </li>
-                    <li id="r6">Jan 2022 - Apr 2022, University of Windsor, COMP-2800 (Course) </li>
-                    <li id="r7">Jan 2024 - Apr 2024, University of Windsor, COMP-4110 (Course) </li>
+                    <li>Sep 2021 - Dec 2021, University of Windsor, COMP-2120 (Course) </li>
+                    <li>Jan 2022 - Apr 2022, University of Windsor, COMP-2800 (Course) </li>
+                    <li>Jan 2024 - Apr 2024, University of Windsor, COMP-4110 (Course) </li>
 
                     <!-- Courses: C/C++ -->
                     <li>Sep 2020 - Dec 2020, University of Windsor, COMP-1400 (Course) </li>
@@ -241,14 +241,15 @@
 
     window.addEventListener('scroll', function() {
         var toc = document.getElementById('about-toc');
-        var triggerPoint = window.innerHeight * 1.04;
-      
-        if (window.scrollY > triggerPoint) {
-          toc.style.position = 'fixed';
-          toc.style.top = '20px';
+        var about = document.querySelector('.title-box');
+        var triggerPoint = about.getBoundingClientRect().bottom;
+        // If the user scrolls past the about section, fix the toc
+        if (triggerPoint < 0) {
+            toc.style.position = 'fixed';
+            toc.style.top = '35px';
         } else {
-          toc.style.position = 'absolute';
-          toc.style.top = 'auto';
+            toc.style.position = 'absolute';
+            toc.style.top = 'auto';
         }
       });
       document.querySelectorAll('#about-toc a').forEach(anchor => {

@@ -3,7 +3,7 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 # Local Imports
-from halaleats import db
+from platform_site import db
 
 
 class Project(db.Model):

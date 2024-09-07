@@ -3,10 +3,10 @@ from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
 
 # Local Imports
-from halaleats import db
-from halaleats.lib.forms import ProjectForm
-from halaleats.lib.utils import flash_form_errors
-from halaleats.models import Project
+from platform import db
+from platform_site.lib.forms import ProjectForm
+from platform_site.lib.utils import flash_form_errors
+from platform_site.models import Project
 
 
 project = Blueprint('routes/project', __name__)
