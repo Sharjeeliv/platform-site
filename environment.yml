@@ -1,5 +1,0 @@
-name: platform
-channels:
-  - conda-forge
-  - defaults
-prefix: /Users/sharjeelmustafa/opt/anaconda3/envs/platform
