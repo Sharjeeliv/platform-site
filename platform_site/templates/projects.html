@@ -123,14 +123,14 @@
                     </h5><hr class="mb-3 mt-0">
                     <div class="row">
                         <!-- Info Section -->
-                        <div class="col"><p class="card-text">
+                        <div class="col-10"><p class="card-text">
                             <strong>Decription:&nbsp;</strong>{{ project.description }}<br>
                             {% if not project.Additional %}
                             <strong>Additional:&nbsp;</strong>{{ project.langtools }}<br>
                             {% endif %}
                         </p></div>
                         <!-- Button & Tag -->
-                        <div class="col-1">
+                        <div class="col-2">
                             <span class="badge colour-{{ project.main }} float-end">{{ project.type.title() }}</span><br>
                             <span class="badge colour-{{ project.main }} float-end">{{ project.main.title() }}</span><br>
                         </div> <!-- End Info-->
