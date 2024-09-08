@@ -8,42 +8,44 @@
 <div class="flex-grow-1 d-flex align-items-center shadow rounded mb-4 ps-2 title-box col-12 mx-auto" style="background: var(--gradient-indian);">
     <div class="container p-3">
         <h1 class="mono-title"><b>PROJECTS</b></h1>
-        <p>A list of some minor and major projects I have worked on</p>
+        <p>A list of some major and minor projects I have worked on</p>
     </div>
 </div>
 <br>
 
 <!-- SEARCH GROUP -->
-<div class="container mb-5" style="max-width:800px;">
-    <form method="POST" class="mx-2 px-1 mb-4">
+<div class="container mb-5" style="max-width: 800px;">
+    <form method="POST" class="mx-2 px-0 mb-4">
         {{ form.hidden_tag() }}
         <div class="row">
             <!-- DROP DOWN BUTTON 1: Type -->
-            <div class="col">
+            <div class="col-12 col-md px-2 mb-2">
                 <select class="form-select shadow-sm rounded" name="{{ form.proj_type.name }}">
                     <option value="" disabled selected>{{ form.proj_type.label }}</option>
                     {% for value, label in form.proj_type.choices %}
                         <option value="{{ value }}" {% if form.proj_type.data == value %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
                 </select>
-                <div class="invalid-feedback m-0 p-0"></div>
+                <div class="invalid-feedback"></div>
             </div>
-            <!-- DROP DOWN BUTTON 2: VERIFICATION -->
-            <div class="col">
+            <!-- DROP DOWN BUTTON 2: Verification -->
+            <div class="col-12 col-md px-2 mb-2">
                 <select class="form-select shadow-sm rounded" name="{{ form.main_lang.name }}">
                     <option value="" disabled selected>{{ form.main_lang.label }}</option>
                     {% for value, label in form.main_lang.choices %}
                         <option value="{{ value }}" {% if form.main_lang.data == value %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
                 </select>
-                <div class="invalid-feedback m-0 p-0"></div>
+                <div class="invalid-feedback"></div>
             </div>
-            <div class="col-1 ">
-                {{ form.submit(class="btn btn-dark shadow-sm") }}   
+            <!-- SUBMIT BUTTON -->
+            <div class="col-12 col-md-1 px-2 mb-2">
+                {{ form.submit(class="btn btn-dark shadow-sm col-12") }}
             </div>
+        </div>
     </form>
 </div>
-<!-- END SEARCH GROUP -->
+
 
 <!-- CARD LISTING -->
 <div class="container" style="max-width:800px;">
