@@ -2,7 +2,9 @@
     --gradient-arabic: linear-gradient(135deg, #d7f481, #69c82a);
     --gradient-turkish: linear-gradient(135deg, #fbcb84, #ea3c07);
     --gradient-indian: linear-gradient(135deg, #f5d865, #ff7700);
-    --gradient-american: linear-gradient(135deg, #65dff5, #00a6ff);
+    --gradient-chinese: linear-gradient(135deg, hsl(55, 100%, 80%), #d2af02);
+    --gradient-american: linear-gradient(135deg, #9bffd9, #06a691);
+    --gradient-balkan: linear-gradient(135deg, #edbfdd, #b26bf6);
     --text-dark: #2c2c2c;
 }
 
@@ -10,29 +12,34 @@
 
 /* GRADIENT MAPPINGS */
 .colour-python {
-    background: var(--gradient-arabic);
+    background: var(--gradient-indian);
     color: var(--text-dark);
 }
 
 .colour-cppc {
-    background: var(--gradient-turkish);
+    background: var(--gradient-american);
+    color: var(--text-dark);
 }
 
 .colour-csharp {
-    background: var(--gradient-indian);
+    background: var(--gradient-arabic);
+    color: var(--text-dark);
 }
 
 .colour-javascript {
-    background: var(--gradient-american);
+    background: var(--gradient-chinese);
+    color: var(--text-dark);
 }
 
 .colour-java {
-    background: linear-gradient(135deg, #65dff5, #00a6ff)
+    background: var(--gradient-turkish);
+    color: var(--text-dark);
 }
 
 /* STYLES */
 .title-box {
     height: calc(20vh);
+    min-height: 120px;
 }
 
 .title-box-lg {
