@@ -21,7 +21,7 @@ def resume():
 
 @main.route("/")
 def home():
-    return render_template('home.html', title='Home', user=current_user)
+    return render_template('home.html', title='Sharjeel - Home', user=current_user)
 
 @main.route("/projects", methods=['GET', 'POST'])
 def projects():    
@@ -39,7 +39,7 @@ def projects():
 
         page = request.args.get('page', 1, type=int)
         projects = query.order_by(Project.name.desc()).paginate(page=page, per_page=5)
-        return render_template('projects.html', form=form, projects=projects, user=current_user, langs=LANGUAGES, types=TYPES)
+        return render_template('projects.html', form=form, title='Sharjeel - Projects', projects=projects, user=current_user, langs=LANGUAGES, types=TYPES)
 
     else:
         flash_form_errors(form)
@@ -47,7 +47,7 @@ def projects():
     # Show default page
     page = request.args.get('page', 1, type=int)
     projects = Project.query.order_by(Project.name.desc()).paginate(page=page, per_page=5)
-    return render_template('projects.html', form=form, projects=projects, title='Home', user=current_user, langs=LANGUAGES, types=TYPES)
+    return render_template('projects.html', form=form, projects=projects, title='Sharjeel - Projects', user=current_user, langs=LANGUAGES, types=TYPES)
 
     
 
