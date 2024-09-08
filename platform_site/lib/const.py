@@ -1,12 +1,29 @@
-LANGUAGES = [
-    ('python', 'Python'), 
-    ('java', 'Java'),
-    ('cppc', 'C/C++'),
-    ('javascript', 'JavaScript'),
-    ('csharp', 'C#')]
+# LANGUAGES = [
+#     ('python', 'Python'), 
+#     ('java', 'Java'),
+#     ('cppc', 'C/C++'),
+#     ('javascript', 'JavaScript'),
+#     ('csharp', 'C#')]
 
-TYPES = [
-    ('machine-learning', 'Machine Learning'),
-    ('game-simulation', 'Game/Simulation'), 
-    ('web-application', 'Web Application'),
-    ('automation-tool', 'Automation/Tool')]
+
+
+# TYPES = [
+#     ('machine-learning', 'Machine Learning'),
+#     ('game-simulation', 'Game/Simulation'), 
+#     ('web-application', 'Web Application'),
+#     ('automation-tool', 'Automation/Tool')]
+
+LANGUAGES = {
+    'python': 'Python',
+    'java': 'Java',
+    'cppc': 'C/C++',
+    'javascript': 'JavaScript',
+    'csharp': 'C#'
+}
+
+TYPES = {
+    'machine-learning': 'Machine Learning',
+    'game-simulation': 'Game/Simulation',
+    'web-application': 'Web Application',
+    'automation-tool': 'Automation/Tool'
+}

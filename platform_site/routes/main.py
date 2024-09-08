@@ -6,6 +6,7 @@ from platform_site.lib.utils import flash_form_errors
 # Local Imports
 from platform_site.lib.forms import SearchForm
 from platform_site.models import Project
+from platform_site.lib.const import LANGUAGES, TYPES
 
 
 main = Blueprint('routes/main', __name__)
@@ -38,7 +39,7 @@ def projects():
 
         page = request.args.get('page', 1, type=int)
         projects = query.order_by(Project.name.desc()).paginate(page=page, per_page=5)
-        return render_template('projects.html', form=form, projects=projects, user=current_user)
+        return render_template('projects.html', form=form, projects=projects, user=current_user, langs=LANGUAGES, types=TYPES)
 
     else:
         flash_form_errors(form)
@@ -46,7 +47,7 @@ def projects():
     # Show default page
     page = request.args.get('page', 1, type=int)
     projects = Project.query.order_by(Project.name.desc()).paginate(page=page, per_page=5)
-    return render_template('projects.html', form=form, projects=projects, title='Home', user=current_user)
+    return render_template('projects.html', form=form, projects=projects, title='Home', user=current_user, langs=LANGUAGES, types=TYPES)
 
     
 

@@ -35,15 +35,18 @@ class LoginForm(FlaskForm):
 # *********************
 # PROJECT FORM
 # *********************
-class ProjectForm(FlaskForm):
-    name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=50)])
-    description = StringField('Description', validators=[DataRequired(), Length(min=2, max=100)])
-    github = StringField('Github Repository')
-    link = StringField('Project Link')
+languages = [(key, value) for key, value in LANGUAGES.items()]
+types = [(key, value) for key, value in TYPES.items()]
 
-    main_lang = SelectField('Main Language', choices=LANGUAGES, validators=[DataRequired()])
-    proj_type = SelectField('Project Type', choices=TYPES, validators=[DataRequired()])
-    langtools = StringField('Language & Tools', validators=[Length(min=0, max=100)])
+class ProjectForm(FlaskForm):
+    name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=32)])
+    description = StringField('Description', validators=[DataRequired(), Length(min=2, max=256)])
+    github = StringField('Github Repository', validators=[Optional()])
+    link = StringField('Project Link', validators=[Optional()])
+
+    main_lang = SelectField('Main Language', choices=languages, validators=[DataRequired()])
+    proj_type = SelectField('Project Type', choices=types, validators=[DataRequired()])
+    langtools = StringField('Language & Tools', validators=[Length(min=0, max=256)])
 
     submit = SubmitField('Submit')
 
@@ -52,6 +55,6 @@ class ProjectForm(FlaskForm):
 # SITE FORMS
 # *********************
 class SearchForm(FlaskForm):
-    main_lang = SelectField('Main Language', choices=LANGUAGES, validators=[Optional()])
-    proj_type = SelectField('Project Type', choices=TYPES, validators=[Optional()])
+    main_lang = SelectField('Main Language', choices=languages, validators=[Optional()])
+    proj_type = SelectField('Project Type', choices=types, validators=[Optional()])
     submit = SubmitField('→')
